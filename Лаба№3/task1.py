@@ -1,8 +1,8 @@
 # TODO Напишите функцию для поиска индекса товара
 def find_index(spisok,nuzhniy_tovar):
-    for i in spisok:
-        if i == nuzhniy_tovar:
-            return spisok.index(i)
+    for i in range(len(spisok)):
+        if spisok[i] == nuzhniy_tovar:
+            return i
     return None
 items_list = ['яблоко', 'банан', 'апельсин', 'груша', 'киви', 'банан']
 
