@@ -1,7 +1,7 @@
 class Book:
     """ Базовый класс книги. """
 
-    def __init__(self, name: str, author: str):
+    def __init__(self, name: str, author: str) -> None:
         # Инициализация атрибутов книги: название и автор
         self._name = name
         self._author = author
@@ -16,11 +16,11 @@ class Book:
         # Свойство для получения автора книги
         return self._author
 
-    def __str__(self):
+    def __str__(self) -> str:
         # Метод для строкового представления объекта (для print)
-        return f"Книга {self.name}. Автор {self.author}"
+        return f"Книга '{self.name}'. Автор: {self.author}"
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         # Метод для представления объекта в виде строки (для отладки)
         return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r})"
 
@@ -28,7 +28,7 @@ class Book:
 class PaperBook(Book):
     """ Класс для печатной книги. """
 
-    def __init__(self, name: str, author: str, pages: int):
+    def __init__(self, name: str, author: str, pages: int) -> None:
         # Инициализация атрибутов печатной книги, включая количество страниц
         super().__init__(name, author)  # Вызов конструктора базового класса
         self.pages = pages  # Установка количества страниц через свойство
@@ -47,15 +47,18 @@ class PaperBook(Book):
             raise ValueError("Количество страниц должно быть положительным")
         self._pages = value  # Установка значения количества страниц
 
-    def __str__(self):
-        # Переопределение метода для строкового представления объекта
+    def __str__(self) -> str:
+        # Переопределение метода для строкового представления объекта(Нужно для адаптации вывода под конкретный класс. Здесь для бумажной книги)
         return f"{super().__str__()}. Страниц: {self.pages}"
+    def __repr__(self) -> str:
+        # Переопределение метода для представления объекта в виде строки (для отладки)
+        return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r}, pages={self.pages})"
 
 
 class AudioBook(Book):
     """ Класс для аудиокниги. """
 
-    def __init__(self, name: str, author: str, duration: float):
+    def __init__(self, name: str, author: str, duration: float) -> None:
         # Инициализация атрибутов аудиокниги, включая длительность
         super().__init__(name, author)  # Вызов конструктора базового класса
         self.duration = duration  # Установка длительности через свойство
@@ -74,11 +77,13 @@ class AudioBook(Book):
             raise ValueError("Длительность должна быть положительной")
         self._duration = float(value)  # Установка значения длительности
 
-    def __str__(self):
-        # Переопределение метода для строкового представления объекта
+    def __str__(self) -> str:
+        # Переопределение метода для строкового представления объекта для аудиокниги
         return f"{super().__str__()}. Длительность: {self.duration} часов"
 
-
+    def __repr__(self) -> str:
+        # Переопределение метода для представления объекта в виде строки (для отладки)
+        return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r}, duration={self.duration})"
 # Пример использования классов
 if __name__ == "__main__":
     try:
