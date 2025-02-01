@@ -1,4 +1,4 @@
-from task_1 import Car,Book,Smartphone
+from task1 import Car,Book,Smartphone
 
  # TODO: импортируйте классы, созданные в ходе выполнения прошлого задания
 if __name__ == "__main__":
