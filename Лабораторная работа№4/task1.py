@@ -2,7 +2,7 @@
 class Vehicle:
     """
     Базовый класс для всех транспортных средств.
-
+    
     Attributes:
         make (str): Производитель транспортного средства.
         model (str): Модель транспортного средства.
@@ -12,7 +12,7 @@ class Vehicle:
     def __init__(self, make: str, model: str, year: int) -> None:
         """
         Инициализация транспортного средства.
-
+        
         Args:
             make (str): Производитель.
             model (str): Модель.
@@ -30,11 +30,11 @@ class Vehicle:
         """Возвращает формальное строковое представление транспортного средства."""
         return f"Vehicle(make='{self.make}', model='{self.model}', year={self.year})"
 
-# TODO: описать дочерний класс
+
 class Car(Vehicle):
     """
     Класс для легковых автомобилей, наследующий от Vehicle.
-
+    
     Attributes:
         fuel_type (str): Тип топлива, используемого автомобилем.
     """
@@ -42,7 +42,7 @@ class Car(Vehicle):
     def __init__(self, make: str, model: str, year: int, fuel_type: str) -> None:
         """
         Инициализация легкового автомобиля.
-
+        
         Args:
             make (str): Производитель.
             model (str): Модель.
@@ -67,7 +67,7 @@ class Car(Vehicle):
     def start_engine(self) -> str:
         """
         Запускает двигатель автомобиля.
-
+        
         Returns:
             str: Сообщение о запуске двигателя.
         """
@@ -76,10 +76,10 @@ class Car(Vehicle):
     def start_engine_with_mode(self, mode: str) -> str:
         """
         Запускает двигатель автомобиля с заданным режимом.
-
+        
         Args:
             mode (str): Режим запуска (например, 'eco', 'sport').
-
+        
         Returns:
             str: Сообщение о запуске двигателя в заданном режиме.
 
